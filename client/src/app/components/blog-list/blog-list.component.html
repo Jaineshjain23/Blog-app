@@ -1,0 +1,103 @@
+<!-- <div class="list row"> -->
+    <!-- <div class="col-md-8">
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search by title"
+          [(ngModel)]="title"
+        />
+        <div class="input-group-append">
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            (click)="searchTitle()"
+          >
+            Search
+          </button>
+        </div>
+        
+      </div>
+    </div> -->
+    <!-- <div class="col-md-6">
+      <h4>Blogs List</h4>
+      <button class="m-3 btn btn-sm btn-primary" routerLink="/blog/add">
+        Create Blog
+      </button>
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let blog of blogs; let i = index"
+          [class.active]="i == currentIndex"
+          (click)="setActiveBlog(blog, i)"
+        >
+          {{ blog.title }}
+        </li>
+      </ul> -->
+  
+      <!-- <button class="m-3 btn btn-sm btn-danger" (click)="removeAllBlogs()">
+        Remove All
+      </button> -->
+    <!-- </div> -->
+    <!-- <div class="col-md-6">
+      <div *ngIf="currentBlog">
+        <h4>Blog</h4>
+        <div>
+          <label><strong>Title:</strong></label> {{ currentBlog.title }}
+        </div>
+        <div>
+          <label><strong>Content:</strong></label>
+          {{ currentBlog.content }}
+        </div>
+        <div>
+          <label><strong>Status:</strong></label>
+          {{ currentBlog.published ? "Published" : "Pending" }}
+        </div>
+  
+        <a class="badge badge-warning" routerLink="/blog/{{ currentBlog._id }}/details">
+          Edit
+        </a>
+        <a class="badge badge-danger" (click)="removeSelectedBlogs()">
+          Delete
+        </a>
+      </div>
+  
+      <div *ngIf="!currentBlog">
+        <br />
+        <p>Please click on a Blog...</p>
+      </div> -->
+    <!-- </div> -->
+  <!-- </div> -->
+  <h4>Blogs List</h4>
+  <button class="m-3 btn btn-sm btn-primary" routerLink="/blog/add">
+    Create Blog
+  </button>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Title</th>
+        <th scope="col">Author</th>
+        <th scope="col">Published Date</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr  *ngFor="let blog of blogs; let i = index">
+        <td>{{i+1}}</td>
+        <td>{{blog.title}}</td>
+        <td>{{blog.authorname}}</td>
+        <td>{{blog.createddate}}</td>
+        <td>
+        <button class="m-3 btn btn-sm btn-warning"  routerLink="/blog/{{ blog._id }}/details">
+          Edit
+        </button>
+        <button class="m-3 btn btn-sm btn-primary"  routerLink="/blog/{{ blog._id }}/read">
+          Read
+        </button>
+        </td>
+      </tr>
+      
+    </tbody>
+  </table>
